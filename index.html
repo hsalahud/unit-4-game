@@ -32,6 +32,8 @@
 
             <a class="waves-effect waves-light btn red" id="attack" onclick="attack()">ATTACK</a>
             <a class="waves-effect waves-light btn blue" id ="reset" onclick="reset()">RESET</a>
+            <div id = "winLost" class="center center-align white-text"></div>
+            
 
         </div>
         <div class="col m4 rightCol">
@@ -70,7 +72,8 @@
 
 
 
-        <div class="col m6 characters" onmouseover="hoverInfo()" onclick="selectPlayer()" onclick="selectOpponent()">
+        <div class="col m6 characters" onmouseover="hoverInfo()" onclick="selectPlayer()">
+                
 
             <div class="row">
                 <div class="col m3" id="mosquito" data-position="0" value="mosquito" attack="10" health="110"

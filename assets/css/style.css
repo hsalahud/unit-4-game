@@ -74,6 +74,15 @@ button{
     margin-left: 0px;
     margin: right 0px;
     padding:0px;
+    z-index: 1;
+}
+
+#winLost{
+    z-index: 2;
+    position: absolute;
+    /* bottom: 15px; */
+  /* right: 35px; */
+    margin-left: 120px;
 }
 
 /* .player:hover{
