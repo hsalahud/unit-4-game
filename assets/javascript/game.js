@@ -186,11 +186,12 @@ const selectPlayer = () => {
 /**
  * This function calculates the attack statistics
  */
+let totalEnemies = 11
 const attack = () => {
     //variables needed to determine whether we win or lose
     let youLose
     let youWin
-    let totalEnemies = 11
+    
 
     //If a player and opponent is selected, then we continue with the below
     if (document.getElementById('computer').childNodes.length > 0 && document.getElementById('user').childNodes.length > 0) {
@@ -213,8 +214,9 @@ const attack = () => {
         document.querySelector('#playerAttack').textContent = `Attack: ${playerAttackStat2}`
 
         //If the player beats an enemy, update the DOMS and reduce totalEnemies by one
-        if (playerHealthStat2 > 0 && oppHealthStat2 <= 0) {
-            totalEnemies -= 1
+        if (oppHealthStat2 <= 0) {
+            
+            
             opponentSelected = false
     
             document.querySelector('#oppName').textContent = "Opponent: "
@@ -225,9 +227,11 @@ const attack = () => {
             while (newParent.childNodes.length > 0) {
                 newParent.removeChild(newParent.childNodes[0]);
             }
-
+            totalEnemies --
+            console.log(totalEnemies)
             //We win the game if we defeat all the enemies
             if (totalEnemies <= 0) {
+                console.log(totalEnemies)
                 youWin = document.createElement('h1')
                 youWin.textContent = 'YOU WIN!'
 
@@ -294,30 +298,31 @@ const reset = () => {
 
 /////////Variables to reset images of players////////
 let parentMosquito = document.getElementById('mosquito')
-let imageMosquito = `<img class="responsive-img player" data-position="0" value="mosquito" data-selected="false" attack="10" health="110" counter="15" src="./assets/images/mosquito.png">`
+let imageMosquito = `<img class="responsive-img player" data-position="0" value="mosquito" data-selected="false" attack="30" health="300"
+counter="15" src="./assets/images/mosquito.png">`
 
 let parentMysterion = document.getElementById('mysterion')
-let imageMysterion = `<img class="responsive-img player" data-position="1" value="mysterion" data-selected="false" attack="10" health="110"
+let imageMysterion = `<img class="responsive-img player" data-position="1" value="mysterion" data-selected="false" attack="30" health="110"
 counter="15" src="./assets/images/mysterion.png">`
 
 let parentCallGirl = document.getElementById('call-girl')
-let imageCallGirl = `<img class="responsive-img player" data-position="2" value="call girl" data-selected="false" attack="15" health="100"
-counter="20" src="./assets/images/superheroes-call-girl.png">`
+let imageCallGirl = `<img class="responsive-img player" data-position="2" value="call girl" data-selected="false" attack="35" health="200"
+counter="50" src="./assets/images/superheroes-call-girl.png">`
 
 let parentCaptainDiabetes = document.getElementById('captain-diabetes')
 let imageCaptainDiabetes = `<img class="responsive-img player" data-position="3" value="captain diabetes" data-selected="false" attack="20"
 health="105" counter="25" src="./assets/images/superheroes-captain-diabetes.png">`
 
 let parentFastPass = document.getElementById('fastpass')
-let imageFastPass = `<img class="responsive-img player" data-position="4" value="fastpass" data-selected="false" attack="10" health="100"
-counter="15" src="./assets/images/superherores-fastpass.png">`
+let imageFastPass = `<img class="responsive-img player" data-position="4" value="fastpass" data-selected="false" attack="20" health="100"
+counter="25" src="./assets/images/superherores-fastpass.png">`
 
 let parentProfessorTimmy = document.getElementById('prof-timmy')
 let imageProfessorTimmy = `<img class="responsive-img player" data-position="5" value="professor timmy" data-selected="false" attack="10"
-health="110" counter="15" src="./assets/images/superherores-prof-timmy.png">`
+health="110" counter="25" src="./assets/images/superherores-prof-timmy.png">`
 
 let parentSuperCraig = document.getElementById('super-craig')
-let imageSuperCraig = `<img class="responsive-img player" data-position="6" value="super craig" data-selected="false" attack="10" health="100"
+let imageSuperCraig = `<img class="responsive-img player" data-position="6" value="super craig" data-selected="false" attack="15" health="150"
 counter="15" src="./assets/images/superherores-super-craig.png">`
 
 let parentWonderTweek = document.getElementById('wonder-tweek')
@@ -325,20 +330,20 @@ let imageWonderTweek = `<img class="responsive-img player" data-position="7" val
 counter="25" src="./assets/images/superherores-wonder-tweek.png">`
 
 let parentTheCoon = document.getElementById('the-coon')
-let imageTheCoon = ` <img class="responsive-img player" data-position="8" value="the coon" data-selected="false" attack="5" health="120"
+let imageTheCoon = `<img class="responsive-img player" data-position="8" value="the coon" data-selected="false" attack="15" health="120"
 counter="10" src="./assets/images/the-coon.png">`
 
 
 let parentHumanKite = document.getElementById('human-kite')
-let imageHumanKite = ` <img class="responsive-img player" data-position="9" value="human kite" data-selected="false" attack="10" health="105"
+let imageHumanKite = `<img class="responsive-img player" data-position="9" value="human kite" data-selected="false" attack="10" health="105"
 counter="15" src="./assets/images/the-human-kite.png">`
 
 let parentToolShed = document.getElementById('toolshed')
-let imageToolShed = `<img class="responsive-img player" data-position="10" value="toolshed" data-selected="false" attack="10" health="105"
+let imageToolShed = `<img class="responsive-img player" data-position="10" value="toolshed" data-selected="false" attack="10" health="135"
 counter="15" src="./assets/images/toolshed.png">`
 
 let parentTupperware = document.getElementById('tupperware')
-let imageTupperware = `<img class="responsive-img player" data-position="11" value="tupperware" data-selected="false" attack="10" health="100"
+let imageTupperware = `<img class="responsive-img player" data-position="11" value="tupperware" data-selected="false" attack="10" health="110"
 counter="15" src="./assets/images/tupperware.png">`
 
 /**
