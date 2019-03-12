@@ -214,7 +214,7 @@ const attack = () => {
         document.querySelector('#playerAttack').textContent = `Attack: ${playerAttackStat2}`
 
         //If the player beats an enemy, update the DOMS and reduce totalEnemies by one
-        if (oppHealthStat2 <= 0) {
+        if (playerHealthStat2 >= 0 && oppHealthStat2 <= 0) {
             
             
             opponentSelected = false
@@ -228,10 +228,10 @@ const attack = () => {
                 newParent.removeChild(newParent.childNodes[0]);
             }
             totalEnemies --
-            console.log(totalEnemies)
+      
             //We win the game if we defeat all the enemies
             if (totalEnemies <= 0) {
-                console.log(totalEnemies)
+           
                 youWin = document.createElement('h1')
                 youWin.textContent = 'YOU WIN!'
 
@@ -265,6 +265,7 @@ const reset = () => {
 
     let newParent1 = document.getElementById('user');
     let newParent2 = document.getElementById('computer');
+    totalEnemies = 11
 
     document.querySelector('#playerName').textContent = "Player: "
     document.querySelector('#playerHealth').textContent = `Health:`
